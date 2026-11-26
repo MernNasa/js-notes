@@ -29,9 +29,9 @@ export default function App() {
       />
 
       <main className="min-w-0 flex-1 h-screen overflow-scroll">
-        <header className="sticky top-0 z-10 flex items-center gap-3 border-b border-slate-800 bg-slate-950/90 px-4 py-3 backdrop-blur md:hidden">
-          <button onClick={() => setMenuOpen(true)} className="rounded border border-slate-700 px-2 py-1">☰</button>
-          <span className="font-semibold text-amber-400">JS Notes</span>
+        <header className="sticky top-0 z-10 flex items-center gap-3 border-b border-slate-200 bg-white/90 px-4 py-3 backdrop-blur md:hidden">
+          <button onClick={() => setMenuOpen(true)} className="rounded border border-slate-300 px-2 py-1">☰</button>
+          <span className="font-semibold text-indigo-700">JS Notes</span>
         </header>
 
         <div className="mx-auto max-w-4xl px-5 py-8">

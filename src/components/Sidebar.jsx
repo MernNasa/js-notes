@@ -17,19 +17,19 @@ export default function Sidebar({ topics, activeId, onSelect, onAdd, onExport, o
 
   return (
     <>
-      {open && <div className="fixed inset-0 z-20 bg-black/60 md:hidden" onClick={onClose} />}
+      {open && <div className="fixed inset-0 z-20 bg-slate-900/40 md:hidden" onClick={onClose} />}
       <aside
-        className={`fixed h-screen overflow-scroll inset-y-0 left-0 z-30 flex w-72 flex-col border-r border-slate-800 bg-slate-900 transition-transform md:static md:translate-x-0 ${
+        className={`fixed h-screen overflow-scroll inset-y-0 left-0 z-30 flex w-72 flex-col border-r border-slate-200 bg-white transition-transform md:static md:translate-x-0 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="p-4">
-          <h1 className="text-lg font-bold text-amber-400">JS Notes</h1>
+          <h1 className="text-lg font-bold text-indigo-700">JS Notes</h1>
           <input
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search topics…"
-            className="mt-3 w-full rounded-md border border-slate-700 bg-slate-950 px-3 py-2 text-sm outline-none focus:border-amber-400"
+            className="mt-3 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
           />
         </div>
 
@@ -37,13 +37,13 @@ export default function Sidebar({ topics, activeId, onSelect, onAdd, onExport, o
           {Object.keys(groups).length === 0 && <p className="px-3 text-sm text-slate-500">No topics found.</p>}
           {Object.entries(groups).map(([group, items]) => (
             <div key={group} className="mb-3">
-              <p className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700">{group}</p>
+              <p className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-500">{group}</p>
               {items.map((t) => (
                 <button
                   key={t.id}
                   onClick={() => { onSelect(t.id); onClose(); }}
                   className={`block w-full rounded-md px-3 py-1.5 text-left text-sm ${
-                    t.id === activeId ? "bg-amber-400/10 text-amber-300" : "text-slate-300 hover:bg-slate-800"
+                    t.id === activeId ? "bg-indigo-50 font-medium text-indigo-700" : "text-slate-700 hover:bg-slate-100"
                   }`}
                 >
                   {t.title}
@@ -53,14 +53,14 @@ export default function Sidebar({ topics, activeId, onSelect, onAdd, onExport, o
           ))}
         </nav>
 
-        <div className="space-y-2 border-t border-slate-800 p-3">
-          <button onClick={onAdd} className="w-full rounded-md bg-amber-400 px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-300">
+        {/* <div className="space-y-2 border-t border-slate-200 p-3">
+          <button onClick={onAdd} className="w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700">
             + Add topic
           </button>
-          <button onClick={onExport} className="w-full rounded-md border border-slate-700 px-3 py-2 text-sm hover:bg-slate-800">
+          <button onClick={onExport} className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm hover:bg-slate-100">
             Export notes.json
           </button>
-        </div>
+        </div> */}
       </aside>
     </>
   );
